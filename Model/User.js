@@ -1,0 +1,33 @@
+const mongoose=require("mongoose")
+const UserScheme=new mongoose.Schema({
+    email:String,
+    firstname:String,
+    lastname:String,
+    age:Number,
+    fid:String,
+    friends:{
+        type:[String],
+        default:[],
+    },
+    requests:{
+        type:[String],
+        default:[],
+    },
+    IsStarUser:{
+        type:Boolean,
+        default:false,
+    },
+    n_posts:{
+        type:Number,
+        default:0,
+    },
+    allowed_posts:{
+        type:Number,
+        default:1,
+    },
+    createAt:{
+        type:Date,
+        default:Date.now,
+    },
+})
+module.exports=mongoose.model("User",UserScheme);
